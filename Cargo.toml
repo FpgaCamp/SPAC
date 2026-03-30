@@ -1,0 +1,19 @@
+[workspace]
+members = [
+  "crates/spac-cli",
+  "crates/spac-core",
+  "crates/spac-dsl",
+  "crates/spac-layout",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/FpgaCamp/SPAC"
+rust-version = "1.82"
+version = "0.1.0"
+
+[workspace.dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.145"

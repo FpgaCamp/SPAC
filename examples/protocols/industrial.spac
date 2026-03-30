@@ -1,0 +1,8 @@
+protocol industrial {
+  field zone: u8 semantic routing_key;
+  field device: u16 semantic device_id;
+  field command: u8 semantic command_id;
+  field priority: u3 semantic qos;
+  field timestamp: u32 semantic sample_time;
+  payload bytes;
+}

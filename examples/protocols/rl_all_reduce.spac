@@ -1,0 +1,8 @@
+protocol rl_all_reduce {
+  field rank: u16 semantic routing_key;
+  field tensor_id: u24 semantic tensor_id;
+  field chunk_id: u16 semantic chunk_id;
+  field op: u4 semantic reduction_op;
+  field step: u20 semantic training_step;
+  payload bytes;
+}

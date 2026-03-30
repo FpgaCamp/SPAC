@@ -1,0 +1,8 @@
+protocol datacenter {
+  field tenant: u16 semantic routing_key;
+  field flow: u32 semantic flow_id;
+  field service_class: u3 semantic qos;
+  field rack: u10 semantic rack_id;
+  field port: u8 semantic egress_hint;
+  payload bytes;
+}

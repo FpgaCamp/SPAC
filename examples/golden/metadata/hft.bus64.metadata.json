@@ -1,0 +1,61 @@
+{
+  "schema_version": "spac.metadata.v0",
+  "protocol_name": "hft",
+  "bus_width_bits": 64,
+  "total_header_bits": 89,
+  "total_header_bytes": 12,
+  "fields": [
+    {
+      "name": "venue",
+      "semantic": "routing_key",
+      "bit_offset": 0,
+      "bit_width": 8,
+      "byte_offset": 0,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "symbol",
+      "semantic": "symbol_id",
+      "bit_offset": 8,
+      "bit_width": 32,
+      "byte_offset": 1,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "side",
+      "semantic": "order_side",
+      "bit_offset": 40,
+      "bit_width": 1,
+      "byte_offset": 5,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "price",
+      "semantic": "price_ticks",
+      "bit_offset": 41,
+      "bit_width": 32,
+      "byte_offset": 5,
+      "flit_index": 0,
+      "crosses_flit_boundary": true
+    },
+    {
+      "name": "qty",
+      "semantic": "quantity",
+      "bit_offset": 73,
+      "bit_width": 16,
+      "byte_offset": 9,
+      "flit_index": 1,
+      "crosses_flit_boundary": false
+    }
+  ],
+  "semantic_bindings": {
+    "order_side": "side",
+    "price_ticks": "price",
+    "quantity": "qty",
+    "routing_key": "venue",
+    "symbol_id": "symbol"
+  }
+}

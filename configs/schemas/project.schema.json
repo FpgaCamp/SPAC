@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/project.schema.json",
+  "title": "SPAC project configuration",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project",
+    "language_policy",
+    "reproducibility",
+    "outputs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.project.v0"
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "domain", "source_article", "selected_mvp"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "const": "fpga-network-switch"
+        },
+        "source_article": {
+          "type": "string",
+          "format": "uri"
+        },
+        "selected_mvp": {
+          "enum": ["MVP-A", "MVP-B", "MVP-C"]
+        }
+      }
+    },
+    "language_policy": {
+      "type": "object",
+      "required": ["implementation_languages", "generated_artifacts"],
+      "additionalProperties": false,
+      "properties": {
+        "implementation_languages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": ["Rust", "TypeScript"]
+          }
+        },
+        "generated_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reproducibility": {
+      "type": "object",
+      "required": ["deterministic_seed", "artifact_manifest_schema"],
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "artifact_manifest_schema": {
+          "const": "spac.artifact-manifest.v0"
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["directory"],
+      "additionalProperties": false,
+      "properties": {
+        "directory": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+SPAC Clean-Room Developer Toolchain
+Copyright 2026 SPAC contributors
+
+This product includes software developed in this repository:
+
+    https://github.com/FpgaCamp/SPAC
+
+This project is inspired by the academic paper:
+
+    "SPAC: Automating FPGA-based Network Switches with Protocol Adaptive
+    Customization"
+    https://arxiv.org/html/2604.21881v1
+
+Original paper authors:
+
+    Guoyu Li, Yang Cao, Lucas H L Ng, Alexander Charlton, Qianzhou Wang,
+    Will Punter, Philippos Papaphilippou, Ce Guo, Hongxiang Fan, Wayne Luk,
+    Saman Amarasinghe, and Ajay Brahmakshatriya.
+
+This repository is a clean-room implementation. No endorsement by the paper
+authors or their institutions is implied.

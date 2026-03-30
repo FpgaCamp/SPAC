@@ -1,0 +1,20 @@
+{
+  "schema_version": "spac.project.v0",
+  "project": {
+    "name": "spac",
+    "domain": "fpga-network-switch",
+    "source_article": "https://arxiv.org/html/2604.21881v1",
+    "selected_mvp": "MVP-A"
+  },
+  "language_policy": {
+    "implementation_languages": ["Rust", "TypeScript"],
+    "generated_artifacts": ["HLS C++ header"]
+  },
+  "reproducibility": {
+    "deterministic_seed": 260421881,
+    "artifact_manifest_schema": "spac.artifact-manifest.v0"
+  },
+  "outputs": {
+    "directory": "out"
+  }
+}

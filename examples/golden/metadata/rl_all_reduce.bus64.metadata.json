@@ -1,0 +1,61 @@
+{
+  "schema_version": "spac.metadata.v0",
+  "protocol_name": "rl_all_reduce",
+  "bus_width_bits": 64,
+  "total_header_bits": 80,
+  "total_header_bytes": 10,
+  "fields": [
+    {
+      "name": "rank",
+      "semantic": "routing_key",
+      "bit_offset": 0,
+      "bit_width": 16,
+      "byte_offset": 0,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "tensor_id",
+      "semantic": "tensor_id",
+      "bit_offset": 16,
+      "bit_width": 24,
+      "byte_offset": 2,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "chunk_id",
+      "semantic": "chunk_id",
+      "bit_offset": 40,
+      "bit_width": 16,
+      "byte_offset": 5,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "op",
+      "semantic": "reduction_op",
+      "bit_offset": 56,
+      "bit_width": 4,
+      "byte_offset": 7,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "step",
+      "semantic": "training_step",
+      "bit_offset": 60,
+      "bit_width": 20,
+      "byte_offset": 7,
+      "flit_index": 0,
+      "crosses_flit_boundary": true
+    }
+  ],
+  "semantic_bindings": {
+    "chunk_id": "chunk_id",
+    "reduction_op": "op",
+    "routing_key": "rank",
+    "tensor_id": "tensor_id",
+    "training_step": "step"
+  }
+}

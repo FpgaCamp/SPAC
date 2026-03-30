@@ -1,0 +1,49 @@
+# Local-only files
+/.*
+!/.gitignore
+!/.github/
+!/.github/**
+/*.md
+!/README.md
+!/CHANGELOG.md
+!/CONTRIBUTING.md
+!/SECURITY.md
+
+# Roadmap / planning / generated docs surfaces
+/docs/
+/roadmap/
+/roadmaps/
+ROADMAP*.md
+roadmap*.md
+*-roadmap.md
+*ROADMAP*.md
+AUDIT-PLAN.md
+UPDATE-LOG.md
+
+# Generated artifacts and reports
+/out/
+/outputs/
+/artifacts/
+/reports/
+/generated/
+/tmp/
+/temp/
+
+# Build outputs and caches
+/target/
+/build/
+/dist/
+/.cache/
+/.tmp/
+node_modules/
+coverage/
+
+# Logs
+*.log
+*.jsonl
+
+# Editor / backup files
+**/*.rs.bk
+*.swp
+*.swo
+*~

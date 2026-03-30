@@ -1,0 +1,8 @@
+protocol underwater_sensor {
+  field node: u16 semantic routing_key;
+  field mission: u12 semantic mission_id;
+  field sample: u24 semantic sample_id;
+  field priority: u3 semantic qos;
+  field retry: u2 semantic retry_count;
+  payload bytes;
+}

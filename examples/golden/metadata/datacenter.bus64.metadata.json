@@ -1,0 +1,61 @@
+{
+  "schema_version": "spac.metadata.v0",
+  "protocol_name": "datacenter",
+  "bus_width_bits": 64,
+  "total_header_bits": 69,
+  "total_header_bytes": 9,
+  "fields": [
+    {
+      "name": "tenant",
+      "semantic": "routing_key",
+      "bit_offset": 0,
+      "bit_width": 16,
+      "byte_offset": 0,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "flow",
+      "semantic": "flow_id",
+      "bit_offset": 16,
+      "bit_width": 32,
+      "byte_offset": 2,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "service_class",
+      "semantic": "qos",
+      "bit_offset": 48,
+      "bit_width": 3,
+      "byte_offset": 6,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "rack",
+      "semantic": "rack_id",
+      "bit_offset": 51,
+      "bit_width": 10,
+      "byte_offset": 6,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "port",
+      "semantic": "egress_hint",
+      "bit_offset": 61,
+      "bit_width": 8,
+      "byte_offset": 7,
+      "flit_index": 0,
+      "crosses_flit_boundary": true
+    }
+  ],
+  "semantic_bindings": {
+    "egress_hint": "port",
+    "flow_id": "flow",
+    "qos": "service_class",
+    "rack_id": "rack",
+    "routing_key": "tenant"
+  }
+}

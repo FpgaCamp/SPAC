@@ -1,0 +1,16 @@
+[package]
+name = "spac-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "spac"
+path = "src/main.rs"
+
+[dependencies]
+serde_json.workspace = true
+spac-core = { path = "../spac-core" }
+spac-dsl = { path = "../spac-dsl" }
+spac-layout = { path = "../spac-layout" }

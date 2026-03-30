@@ -1,0 +1,6 @@
+protocol basic {
+  field dst: u8 semantic routing_key;
+  field src: u8 semantic source_key;
+  field qos: u3 semantic qos;
+  payload bytes;
+}

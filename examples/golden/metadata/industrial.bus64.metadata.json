@@ -1,0 +1,61 @@
+{
+  "schema_version": "spac.metadata.v0",
+  "protocol_name": "industrial",
+  "bus_width_bits": 64,
+  "total_header_bits": 67,
+  "total_header_bytes": 9,
+  "fields": [
+    {
+      "name": "zone",
+      "semantic": "routing_key",
+      "bit_offset": 0,
+      "bit_width": 8,
+      "byte_offset": 0,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "device",
+      "semantic": "device_id",
+      "bit_offset": 8,
+      "bit_width": 16,
+      "byte_offset": 1,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "command",
+      "semantic": "command_id",
+      "bit_offset": 24,
+      "bit_width": 8,
+      "byte_offset": 3,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "priority",
+      "semantic": "qos",
+      "bit_offset": 32,
+      "bit_width": 3,
+      "byte_offset": 4,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "timestamp",
+      "semantic": "sample_time",
+      "bit_offset": 35,
+      "bit_width": 32,
+      "byte_offset": 4,
+      "flit_index": 0,
+      "crosses_flit_boundary": true
+    }
+  ],
+  "semantic_bindings": {
+    "command_id": "command",
+    "device_id": "device",
+    "qos": "priority",
+    "routing_key": "zone",
+    "sample_time": "timestamp"
+  }
+}

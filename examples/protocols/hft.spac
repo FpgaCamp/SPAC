@@ -1,0 +1,8 @@
+protocol hft {
+  field venue: u8 semantic routing_key;
+  field symbol: u32 semantic symbol_id;
+  field side: u1 semantic order_side;
+  field price: u32 semantic price_ticks;
+  field qty: u16 semantic quantity;
+  payload bytes;
+}

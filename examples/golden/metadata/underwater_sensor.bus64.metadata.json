@@ -1,0 +1,61 @@
+{
+  "schema_version": "spac.metadata.v0",
+  "protocol_name": "underwater_sensor",
+  "bus_width_bits": 64,
+  "total_header_bits": 57,
+  "total_header_bytes": 8,
+  "fields": [
+    {
+      "name": "node",
+      "semantic": "routing_key",
+      "bit_offset": 0,
+      "bit_width": 16,
+      "byte_offset": 0,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "mission",
+      "semantic": "mission_id",
+      "bit_offset": 16,
+      "bit_width": 12,
+      "byte_offset": 2,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "sample",
+      "semantic": "sample_id",
+      "bit_offset": 28,
+      "bit_width": 24,
+      "byte_offset": 3,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "priority",
+      "semantic": "qos",
+      "bit_offset": 52,
+      "bit_width": 3,
+      "byte_offset": 6,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    },
+    {
+      "name": "retry",
+      "semantic": "retry_count",
+      "bit_offset": 55,
+      "bit_width": 2,
+      "byte_offset": 6,
+      "flit_index": 0,
+      "crosses_flit_boundary": false
+    }
+  ],
+  "semantic_bindings": {
+    "mission_id": "mission",
+    "qos": "priority",
+    "retry_count": "retry",
+    "routing_key": "node",
+    "sample_id": "sample"
+  }
+}
