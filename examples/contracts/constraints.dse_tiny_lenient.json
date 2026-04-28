@@ -1,0 +1,13 @@
+{
+  "schema_version": "spac.constraints.v0",
+  "name": "dse_tiny_lenient",
+  "board_target": "software-only",
+  "max_lut": 10000,
+  "max_ff": 20000,
+  "max_bram": 100,
+  "max_dsp": 10,
+  "target_fmax_mhz": 350,
+  "max_p99_latency_ns": 1000,
+  "max_packet_drop_rate": 1,
+  "max_initiation_interval": 1
+}

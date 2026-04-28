@@ -1,21 +1,13 @@
 [package]
-name = "spac-cli"
+name = "spac-dse"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 rust-version.workspace = true
 
-[[bin]]
-name = "spac"
-path = "src/main.rs"
-
 [dependencies]
+serde.workspace = true
 serde_json.workspace = true
-spac-codegen = { path = "../spac-codegen" }
 spac-core = { path = "../spac-core" }
-spac-dsl = { path = "../spac-dsl" }
-spac-dse = { path = "../spac-dse" }
-spac-hwreport = { path = "../spac-hwreport" }
-spac-layout = { path = "../spac-layout" }
 spac-sim = { path = "../spac-sim" }
 spac-trace = { path = "../spac-trace" }

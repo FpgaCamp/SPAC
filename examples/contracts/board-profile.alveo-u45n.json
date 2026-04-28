@@ -1,0 +1,18 @@
+{
+  "schema_version": "spac.board-profile.v0",
+  "board_id": "amd-alveo-u45n",
+  "vendor": "AMD",
+  "board_model": "Alveo U45N",
+  "fpga_part": "xcu26-vsva1365-2LV-e",
+  "toolchain": {
+    "family": "Vitis HLS",
+    "version": "2023.2"
+  },
+  "target_clock_mhz": 350,
+  "host_interface": "PCIe",
+  "loopback_topology": "host-fpga-host loopback or external packet generator",
+  "report_locations": {
+    "synthesis_summary": "reports/post_synthesis.json",
+    "timing_summary": "reports/timing_summary.rpt"
+  }
+}

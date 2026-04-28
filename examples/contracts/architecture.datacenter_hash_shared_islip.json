@@ -1,0 +1,20 @@
+{
+  "schema_version": "spac.architecture.v0",
+  "name": "datacenter_4p_hash_shared_islip",
+  "ports": 4,
+  "bus_width_bits": 256,
+  "forwarding_table": {
+    "type": "multi_bank_hash",
+    "banks": 2,
+    "entries_per_bank": 64
+  },
+  "voq": {
+    "type": "shared",
+    "total_depth_packets": 3
+  },
+  "scheduler": {
+    "type": "islip",
+    "iterations": 2
+  },
+  "custom_kernels": []
+}

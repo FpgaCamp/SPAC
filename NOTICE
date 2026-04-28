@@ -19,3 +19,11 @@ Original paper authors:
 
 This repository is a clean-room implementation. No endorsement by the paper
 authors or their institutions is implied.
+
+SPAC-AE-compatible CSV fixtures and clean-room Rust import/model logic were
+derived from the public artifact-evaluation repository:
+
+    https://github.com/spac-proj/SPAC-AE
+
+The SPAC-AE repository was observed under Apache License 2.0 at commit
+cfa56eaf3ebf5ffba0a92753a1d6581c4255ec73.

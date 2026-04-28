@@ -1,0 +1,13 @@
+# Synthetic Vivado timing/resource fixture for parser contract tests.
+# This is not SPAC paper evidence and does not represent a hardware measurement.
+Tool: Vivado
+Version: 2023.2
+CLB LUT: 50000
+Register: 63000
+Block RAM Tile: 300
+DSP48E: 0
+Achieved Fmax MHz: 347.5
+Target II: 1
+Latency Cycles Min: 9
+Latency Cycles Max: 24
+Max Throughput Gbps: 177.9

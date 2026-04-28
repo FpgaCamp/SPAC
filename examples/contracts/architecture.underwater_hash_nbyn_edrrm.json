@@ -1,0 +1,20 @@
+{
+  "schema_version": "spac.architecture.v0",
+  "name": "underwater_3p_hash_nbyn_edrrm",
+  "ports": 3,
+  "bus_width_bits": 128,
+  "forwarding_table": {
+    "type": "multi_bank_hash",
+    "banks": 2,
+    "entries_per_bank": 32
+  },
+  "voq": {
+    "type": "n_by_n",
+    "depth_packets": 2
+  },
+  "scheduler": {
+    "type": "edrrm",
+    "epochs": 2
+  },
+  "custom_kernels": []
+}

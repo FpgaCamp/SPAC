@@ -1,11 +1,11 @@
 [package]
-name = "spac-core"
+name = "spac-hwreport"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+repository.workspace = true
 rust-version.workspace = true
 
 [dependencies]
 serde.workspace = true
-serde_json.workspace = true
-sha2.workspace = true
+spac-core = { path = "../spac-core" }

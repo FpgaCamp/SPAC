@@ -1,0 +1,19 @@
+{
+  "schema_version": "spac.architecture.v0",
+  "name": "hft_8p_full_lookup_one_buffer_islip",
+  "ports": 8,
+  "bus_width_bits": 512,
+  "forwarding_table": {
+    "type": "full_lookup",
+    "address_width_bits": 8
+  },
+  "voq": {
+    "type": "one_buffer_per_port",
+    "depth_packets": 64
+  },
+  "scheduler": {
+    "type": "islip",
+    "iterations": 1
+  },
+  "custom_kernels": []
+}

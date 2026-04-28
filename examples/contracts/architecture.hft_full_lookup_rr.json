@@ -1,0 +1,19 @@
+{
+  "schema_version": "spac.architecture.v0",
+  "name": "hft_8p_full_lookup_rr",
+  "ports": 8,
+  "bus_width_bits": 256,
+  "forwarding_table": {
+    "type": "full_lookup",
+    "address_width_bits": 8
+  },
+  "voq": {
+    "type": "n_by_n",
+    "depth_packets": 64
+  },
+  "scheduler": {
+    "type": "round_robin",
+    "pipeline_stages": 1
+  },
+  "custom_kernels": []
+}

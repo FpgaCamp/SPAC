@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/constraints.schema.json",
+  "title": "SPAC architecture and board constraints",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "name",
+    "board_target",
+    "max_lut",
+    "max_ff",
+    "max_bram",
+    "max_dsp",
+    "target_fmax_mhz",
+    "max_p99_latency_ns",
+    "max_packet_drop_rate",
+    "max_initiation_interval"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.constraints.v0"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "board_target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "max_lut": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_ff": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_bram": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_dsp": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "target_fmax_mhz": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "max_p99_latency_ns": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "max_packet_drop_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "max_initiation_interval": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

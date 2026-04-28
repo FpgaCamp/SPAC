@@ -1,0 +1,40 @@
+{
+  "schema_version": "spac.trace.v0",
+  "name": "underwater_burst",
+  "workload_class": "underwater_sensor",
+  "time_unit": "ns",
+  "packets": [
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 0,
+      "src": 0,
+      "dst": 1,
+      "payload_bytes": 2,
+      "flow_id": "water_burst_0"
+    },
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 1,
+      "src": 1,
+      "dst": 1,
+      "payload_bytes": 2,
+      "flow_id": "water_burst_1"
+    },
+    {
+      "timestamp_ns": 1,
+      "ingress_port": 0,
+      "src": 0,
+      "dst": 1,
+      "payload_bytes": 2,
+      "flow_id": "water_burst_2"
+    },
+    {
+      "timestamp_ns": 1,
+      "ingress_port": 2,
+      "src": 2,
+      "dst": 1,
+      "payload_bytes": 2,
+      "flow_id": "water_burst_3"
+    }
+  ]
+}

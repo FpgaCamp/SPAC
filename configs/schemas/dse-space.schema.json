@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/dse-space.schema.json",
+  "title": "SPAC DSE candidate space",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "name",
+    "candidates"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.dse-space.v0"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/candidate"
+      }
+    }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": [
+        "name",
+        "architecture",
+        "resource_estimate"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "architecture": {
+          "$ref": "architecture.schema.json"
+        },
+        "resource_estimate": {
+          "$ref": "#/$defs/resource_estimate"
+        }
+      }
+    },
+    "resource_estimate": {
+      "type": "object",
+      "required": [
+        "lut",
+        "ff",
+        "bram",
+        "dsp"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lut": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ff": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bram": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dsp": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

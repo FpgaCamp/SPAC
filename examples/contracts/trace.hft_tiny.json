@@ -1,0 +1,32 @@
+{
+  "schema_version": "spac.trace.v0",
+  "name": "hft_tiny",
+  "workload_class": "hft",
+  "time_unit": "ns",
+  "packets": [
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 0,
+      "src": 1,
+      "dst": 2,
+      "payload_bytes": 24,
+      "flow_id": "hft_order_flow_0"
+    },
+    {
+      "timestamp_ns": 40,
+      "ingress_port": 1,
+      "src": 2,
+      "dst": 3,
+      "payload_bytes": 24,
+      "flow_id": "hft_order_flow_1"
+    },
+    {
+      "timestamp_ns": 80,
+      "ingress_port": 2,
+      "src": 3,
+      "dst": 4,
+      "payload_bytes": 24,
+      "flow_id": "hft_order_flow_2"
+    }
+  ]
+}

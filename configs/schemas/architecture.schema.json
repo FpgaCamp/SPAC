@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/architecture.schema.json",
+  "title": "SPAC architecture configuration",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "name",
+    "ports",
+    "bus_width_bits",
+    "forwarding_table",
+    "voq",
+    "scheduler"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.architecture.v0"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ports": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "bus_width_bits": {
+      "type": "integer",
+      "minimum": 8,
+      "multipleOf": 8
+    },
+    "forwarding_table": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/full_lookup"
+        },
+        {
+          "$ref": "#/$defs/multi_bank_hash"
+        }
+      ]
+    },
+    "voq": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/n_by_n_voq"
+        },
+        {
+          "$ref": "#/$defs/one_buffer_per_port_voq"
+        },
+        {
+          "$ref": "#/$defs/shared_voq"
+        }
+      ]
+    },
+    "scheduler": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/round_robin"
+        },
+        {
+          "$ref": "#/$defs/islip"
+        },
+        {
+          "$ref": "#/$defs/edrrm"
+        }
+      ]
+    },
+    "custom_kernels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/custom_kernel"
+      },
+      "default": []
+    }
+  },
+  "$defs": {
+    "full_lookup": {
+      "type": "object",
+      "required": ["type", "address_width_bits"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "full_lookup"
+        },
+        "address_width_bits": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "multi_bank_hash": {
+      "type": "object",
+      "required": ["type", "banks", "entries_per_bank"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "multi_bank_hash"
+        },
+        "banks": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "entries_per_bank": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "n_by_n_voq": {
+      "type": "object",
+      "required": ["type", "depth_packets"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "n_by_n"
+        },
+        "depth_packets": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "per_queue_depth_packets": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "one_buffer_per_port_voq": {
+      "type": "object",
+      "required": ["type", "depth_packets"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "one_buffer_per_port"
+        },
+        "depth_packets": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "per_port_depth_packets": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "shared_voq": {
+      "type": "object",
+      "required": ["type", "total_depth_packets"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "shared"
+        },
+        "total_depth_packets": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "round_robin": {
+      "type": "object",
+      "required": ["type", "pipeline_stages"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "round_robin"
+        },
+        "pipeline_stages": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "islip": {
+      "type": "object",
+      "required": ["type", "iterations"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "islip"
+        },
+        "iterations": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "edrrm": {
+      "type": "object",
+      "required": ["type", "epochs"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "edrrm"
+        },
+        "epochs": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "custom_kernel": {
+      "type": "object",
+      "required": ["name", "latency_cycles", "resource_class"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "latency_cycles": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "resource_class": {
+          "enum": ["light", "medium", "heavy"]
+        }
+      }
+    }
+  }
+}

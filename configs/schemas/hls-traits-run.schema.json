@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/hls-traits-run.schema.json",
+  "title": "SPAC HLS traits generation run",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_name",
+    "trust_level",
+    "header_path",
+    "manifest_path",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.hls-traits-run.v0"
+    },
+    "protocol_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trust_level": {
+      "const": "software_model"
+    },
+    "header_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifest_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

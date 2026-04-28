@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/simulation-run.schema.json",
+  "title": "SPAC software-model simulation run",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "architecture_name",
+    "trace_name",
+    "trust_level",
+    "supported_model",
+    "metrics",
+    "packet_outcomes",
+    "warnings"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.simulation-run.v0"
+    },
+    "architecture_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trust_level": {
+      "const": "software_model"
+    },
+    "supported_model": {
+      "type": "object",
+      "required": [
+        "forwarding_table",
+        "voq",
+        "scheduler"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "forwarding_table": {
+          "enum": [
+            "full_lookup",
+            "multi_bank_hash"
+          ]
+        },
+        "voq": {
+          "enum": [
+            "n_by_n",
+            "one_buffer_per_port",
+            "shared"
+          ]
+        },
+        "scheduler": {
+          "enum": [
+            "round_robin",
+            "islip",
+            "edrrm"
+          ]
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "packets_received",
+        "packets_forwarded",
+        "packets_dropped",
+        "drop_rate",
+        "simulation_duration_ns",
+        "throughput_packets_per_ns",
+        "throughput_gbps",
+        "latency_ns",
+        "queue_occupancy_max",
+        "peak_voq_occupancy_packets",
+        "bank_conflicts",
+        "lookup_stall_cycles",
+        "estimated_initiation_interval",
+        "line_rate_achieved_ratio",
+        "rx_utilization",
+        "hash_utilization",
+        "scheduler_utilization",
+        "per_port_forwarded",
+        "per_port_dropped"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "packets_received": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "packets_forwarded": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "packets_dropped": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "drop_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "simulation_duration_ns": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "throughput_packets_per_ns": {
+          "type": "number",
+          "minimum": 0
+        },
+        "throughput_gbps": {
+          "type": "number",
+          "minimum": 0
+        },
+        "latency_ns": {
+          "type": "object",
+          "required": [
+            "p50",
+            "p95",
+            "p99",
+            "max"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "p50": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "p95": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "p99": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "queue_occupancy_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "peak_voq_occupancy_packets": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "bank_conflicts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lookup_stall_cycles": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "estimated_initiation_interval": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "line_rate_achieved_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rx_utilization": {
+          "type": "number",
+          "minimum": 0
+        },
+        "hash_utilization": {
+          "type": "number",
+          "minimum": 0
+        },
+        "scheduler_utilization": {
+          "type": "number",
+          "minimum": 0
+        },
+        "per_port_forwarded": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "per_port_dropped": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "packet_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "flow_id",
+          "ingress_port",
+          "egress_port",
+          "status",
+          "timestamp_ns",
+          "completion_ns",
+          "latency_ns"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "flow_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ingress_port": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "egress_port": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "status": {
+            "enum": [
+              "forwarded",
+              "dropped"
+            ]
+          },
+          "timestamp_ns": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "completion_ns": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "latency_ns": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

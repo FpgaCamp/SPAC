@@ -1,0 +1,31 @@
+{
+  "schema_version": "spac.experiment-run.v0",
+  "run_id": "e0-hft-layout-smoke",
+  "stage": "E0",
+  "trust_level": "software_model",
+  "status": "success",
+  "artifact_manifest_schema": "spac.artifact-manifest.v0",
+  "command": "cargo run -p spac-cli -- analyze-layout --protocol examples/protocols/hft.spac --bus-width 64",
+  "board_profile_id": "not_applicable",
+  "input_files": [
+    {
+      "path": "examples/protocols/hft.spac",
+      "sha256": "7a056fcc7c5304d6faa5e3b399b5d05524a61a783e3581dbe88b19f9faeb67d2"
+    },
+    {
+      "path": "examples/minimal/spac.project.json",
+      "sha256": "932d61a99fede38889b3bae95b5eb5655d23b3b974e99ef1db823a2a97cb2bfa"
+    }
+  ],
+  "output_files": [
+    {
+      "path": "examples/golden/metadata/hft.bus64.metadata.json",
+      "sha256": "e463bbe2750bda2b533b4e00fee2ef06a9747f60aea462d7fd13cb2f3bac314f"
+    }
+  ],
+  "known_limitations": [
+    "No HLS synthesis performed",
+    "No ns-3 simulation performed",
+    "No hardware measurement performed"
+  ]
+}

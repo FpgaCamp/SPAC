@@ -1,0 +1,96 @@
+{
+  "schema_version": "spac.simulation-run.v0",
+  "architecture_name": "underwater_3p_hash_nbyn_edrrm",
+  "trace_name": "underwater_burst",
+  "trust_level": "software_model",
+  "supported_model": {
+    "forwarding_table": "multi_bank_hash",
+    "voq": "n_by_n",
+    "scheduler": "edrrm"
+  },
+  "metrics": {
+    "packets_received": 4,
+    "packets_forwarded": 4,
+    "packets_dropped": 0,
+    "drop_rate": 0.0,
+    "simulation_duration_ns": 4,
+    "throughput_packets_per_ns": 1.0,
+    "throughput_gbps": 16.0,
+    "latency_ns": {
+      "p50": 13,
+      "p95": 14,
+      "p99": 14,
+      "max": 14
+    },
+    "queue_occupancy_max": 3,
+    "peak_voq_occupancy_packets": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "bank_conflicts": 2,
+    "lookup_stall_cycles": 2,
+    "estimated_initiation_interval": 3,
+    "line_rate_achieved_ratio": 0.0,
+    "rx_utilization": 1.0,
+    "hash_utilization": 1.0,
+    "scheduler_utilization": 1.0,
+    "per_port_forwarded": [
+      0,
+      4,
+      0
+    ],
+    "per_port_dropped": [
+      0,
+      0,
+      0
+    ]
+  },
+  "packet_outcomes": [
+    {
+      "flow_id": "water_burst_0",
+      "ingress_port": 0,
+      "egress_port": 1,
+      "status": "forwarded",
+      "timestamp_ns": 0,
+      "completion_ns": 12,
+      "latency_ns": 12
+    },
+    {
+      "flow_id": "water_burst_1",
+      "ingress_port": 1,
+      "egress_port": 1,
+      "status": "forwarded",
+      "timestamp_ns": 0,
+      "completion_ns": 13,
+      "latency_ns": 13
+    },
+    {
+      "flow_id": "water_burst_2",
+      "ingress_port": 0,
+      "egress_port": 1,
+      "status": "forwarded",
+      "timestamp_ns": 1,
+      "completion_ns": 14,
+      "latency_ns": 13
+    },
+    {
+      "flow_id": "water_burst_3",
+      "ingress_port": 2,
+      "egress_port": 1,
+      "status": "forwarded",
+      "timestamp_ns": 1,
+      "completion_ns": 15,
+      "latency_ns": 14
+    }
+  ],
+  "warnings": [
+    "software_model trust level: no HLS synthesis, RTL simulation, timing closure, or FPGA measurement was performed"
+  ]
+}

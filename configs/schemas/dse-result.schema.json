@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/dse-result.schema.json",
+  "title": "SPAC software-model DSE result",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "space_name",
+    "trace_name",
+    "constraints_name",
+    "trust_level",
+    "frontier",
+    "candidates",
+    "warnings"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.dse-result.v0"
+    },
+    "space_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trust_level": {
+      "const": "software_model"
+    },
+    "frontier": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate_result"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "candidate_result": {
+      "type": "object",
+      "required": [
+        "name",
+        "architecture_name",
+        "phase",
+        "status",
+        "dominated_by",
+        "constraint_failures",
+        "resource_estimate",
+        "metrics",
+        "optimized_from",
+        "buffer_optimization"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "architecture_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phase": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "frontier",
+            "dominated",
+            "constraint_rejected"
+          ]
+        },
+        "dominated_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "constraint_failures": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "max_lut",
+              "max_ff",
+              "max_bram",
+              "max_dsp",
+              "max_p99_latency_ns",
+              "max_packet_drop_rate",
+              "max_initiation_interval",
+              "phase2_max_drop_rate"
+            ]
+          }
+        },
+        "resource_estimate": {
+          "$ref": "dse-space.schema.json#/$defs/resource_estimate"
+        },
+        "metrics": {
+          "$ref": "simulation-run.schema.json#/properties/metrics"
+        },
+        "optimized_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "buffer_optimization": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/buffer_optimization"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "buffer_optimization": {
+      "type": "object",
+      "required": [
+        "min_depth_packets",
+        "original_buffer_memory_packets",
+        "optimized_buffer_memory_packets",
+        "packet_depth_saving_ratio",
+        "peak_voq_occupancy_packets",
+        "optimized_depth_packets"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "min_depth_packets": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "original_buffer_memory_packets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "optimized_buffer_memory_packets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "packet_depth_saving_ratio": {
+          "type": "number"
+        },
+        "peak_voq_occupancy_packets": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "optimized_depth_packets": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

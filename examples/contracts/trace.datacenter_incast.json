@@ -1,0 +1,40 @@
+{
+  "schema_version": "spac.trace.v0",
+  "name": "datacenter_incast",
+  "workload_class": "datacenter",
+  "time_unit": "ns",
+  "packets": [
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 0,
+      "src": 0,
+      "dst": 2,
+      "payload_bytes": 512,
+      "flow_id": "dc_incast_0"
+    },
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 1,
+      "src": 1,
+      "dst": 2,
+      "payload_bytes": 512,
+      "flow_id": "dc_incast_1"
+    },
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 2,
+      "src": 2,
+      "dst": 2,
+      "payload_bytes": 512,
+      "flow_id": "dc_incast_2"
+    },
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 3,
+      "src": 3,
+      "dst": 2,
+      "payload_bytes": 512,
+      "flow_id": "dc_incast_3"
+    }
+  ]
+}

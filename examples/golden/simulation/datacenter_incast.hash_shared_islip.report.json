@@ -1,0 +1,90 @@
+{
+  "schema_version": "spac.simulation-run.v0",
+  "architecture_name": "datacenter_4p_hash_shared_islip",
+  "trace_name": "datacenter_incast",
+  "trust_level": "software_model",
+  "supported_model": {
+    "forwarding_table": "multi_bank_hash",
+    "voq": "shared",
+    "scheduler": "islip"
+  },
+  "metrics": {
+    "packets_received": 4,
+    "packets_forwarded": 3,
+    "packets_dropped": 1,
+    "drop_rate": 0.25,
+    "simulation_duration_ns": 3,
+    "throughput_packets_per_ns": 1.0,
+    "throughput_gbps": 4096.0,
+    "latency_ns": {
+      "p50": 18,
+      "p95": 19,
+      "p99": 19,
+      "max": 19
+    },
+    "queue_occupancy_max": 3,
+    "peak_voq_occupancy_packets": [
+      3
+    ],
+    "bank_conflicts": 3,
+    "lookup_stall_cycles": 3,
+    "estimated_initiation_interval": 4,
+    "line_rate_achieved_ratio": 1.0,
+    "rx_utilization": 1.0,
+    "hash_utilization": 1.0,
+    "scheduler_utilization": 1.0,
+    "per_port_forwarded": [
+      0,
+      0,
+      3,
+      0
+    ],
+    "per_port_dropped": [
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  "packet_outcomes": [
+    {
+      "flow_id": "dc_incast_0",
+      "ingress_port": 0,
+      "egress_port": 2,
+      "status": "forwarded",
+      "timestamp_ns": 0,
+      "completion_ns": 17,
+      "latency_ns": 17
+    },
+    {
+      "flow_id": "dc_incast_1",
+      "ingress_port": 1,
+      "egress_port": 2,
+      "status": "forwarded",
+      "timestamp_ns": 0,
+      "completion_ns": 18,
+      "latency_ns": 18
+    },
+    {
+      "flow_id": "dc_incast_2",
+      "ingress_port": 2,
+      "egress_port": 2,
+      "status": "forwarded",
+      "timestamp_ns": 0,
+      "completion_ns": 19,
+      "latency_ns": 19
+    },
+    {
+      "flow_id": "dc_incast_3",
+      "ingress_port": 3,
+      "egress_port": 2,
+      "status": "dropped",
+      "timestamp_ns": 0,
+      "completion_ns": null,
+      "latency_ns": null
+    }
+  ],
+  "warnings": [
+    "software_model trust level: no HLS synthesis, RTL simulation, timing closure, or FPGA measurement was performed"
+  ]
+}

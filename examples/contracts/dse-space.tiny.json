@@ -1,0 +1,118 @@
+{
+  "schema_version": "spac.dse-space.v0",
+  "name": "tiny_dse_space",
+  "candidates": [
+    {
+      "name": "minimal_nbyn",
+      "architecture": {
+        "schema_version": "spac.architecture.v0",
+        "name": "minimal_nbyn",
+        "ports": 2,
+        "bus_width_bits": 256,
+        "forwarding_table": {
+          "type": "full_lookup",
+          "address_width_bits": 8
+        },
+        "voq": {
+          "type": "n_by_n",
+          "depth_packets": 1
+        },
+        "scheduler": {
+          "type": "round_robin",
+          "pipeline_stages": 1
+        },
+        "custom_kernels": []
+      },
+      "resource_estimate": {
+        "lut": 100,
+        "ff": 200,
+        "bram": 1,
+        "dsp": 0
+      }
+    },
+    {
+      "name": "balanced_nbyn",
+      "architecture": {
+        "schema_version": "spac.architecture.v0",
+        "name": "balanced_nbyn",
+        "ports": 2,
+        "bus_width_bits": 256,
+        "forwarding_table": {
+          "type": "full_lookup",
+          "address_width_bits": 8
+        },
+        "voq": {
+          "type": "n_by_n",
+          "depth_packets": 2
+        },
+        "scheduler": {
+          "type": "round_robin",
+          "pipeline_stages": 1
+        },
+        "custom_kernels": []
+      },
+      "resource_estimate": {
+        "lut": 120,
+        "ff": 240,
+        "bram": 2,
+        "dsp": 0
+      }
+    },
+    {
+      "name": "deep_nbyn",
+      "architecture": {
+        "schema_version": "spac.architecture.v0",
+        "name": "deep_nbyn",
+        "ports": 2,
+        "bus_width_bits": 256,
+        "forwarding_table": {
+          "type": "full_lookup",
+          "address_width_bits": 8
+        },
+        "voq": {
+          "type": "n_by_n",
+          "depth_packets": 3
+        },
+        "scheduler": {
+          "type": "round_robin",
+          "pipeline_stages": 1
+        },
+        "custom_kernels": []
+      },
+      "resource_estimate": {
+        "lut": 140,
+        "ff": 280,
+        "bram": 3,
+        "dsp": 0
+      }
+    },
+    {
+      "name": "wasteful_shared",
+      "architecture": {
+        "schema_version": "spac.architecture.v0",
+        "name": "wasteful_shared",
+        "ports": 2,
+        "bus_width_bits": 256,
+        "forwarding_table": {
+          "type": "full_lookup",
+          "address_width_bits": 8
+        },
+        "voq": {
+          "type": "shared",
+          "total_depth_packets": 4
+        },
+        "scheduler": {
+          "type": "round_robin",
+          "pipeline_stages": 1
+        },
+        "custom_kernels": []
+      },
+      "resource_estimate": {
+        "lut": 200,
+        "ff": 400,
+        "bram": 4,
+        "dsp": 0
+      }
+    }
+  ]
+}

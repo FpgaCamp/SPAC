@@ -1,0 +1,32 @@
+{
+  "schema_version": "spac.trace.v0",
+  "name": "dse_tiny_burst",
+  "workload_class": "datacenter",
+  "time_unit": "ns",
+  "packets": [
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 0,
+      "src": 0,
+      "dst": 1,
+      "payload_bytes": 512,
+      "flow_id": "burst_0"
+    },
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 0,
+      "src": 0,
+      "dst": 1,
+      "payload_bytes": 512,
+      "flow_id": "burst_1"
+    },
+    {
+      "timestamp_ns": 0,
+      "ingress_port": 0,
+      "src": 0,
+      "dst": 1,
+      "payload_bytes": 512,
+      "flow_id": "burst_2"
+    }
+  ]
+}

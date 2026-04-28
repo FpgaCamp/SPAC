@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/spac/hw-acceptance.schema.json",
+  "title": "SPAC post-synthesis hardware acceptance report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trust_level",
+    "status",
+    "hw_report_path",
+    "constraints_path",
+    "board_profile_id",
+    "constraints_name",
+    "checks",
+    "warnings",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "spac.hw-acceptance.v0"
+    },
+    "trust_level": {
+      "const": "post_synthesis"
+    },
+    "status": {
+      "enum": ["pass", "fail", "inconclusive"]
+    },
+    "hw_report_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "board_profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["metric", "status", "comparator", "measured", "limit", "message"],
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": ["pass", "fail", "inconclusive", "not_evaluated"]
+          },
+          "comparator": {
+            "enum": ["<=", ">="]
+          },
+          "measured": {
+            "type": ["number", "null"]
+          },
+          "limit": {
+            "type": ["number", "null"]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# Synthetic Vitis HLS summary fixture for parser contract tests.
+# This is not SPAC paper evidence and does not represent a hardware measurement.
+Tool: Vitis HLS
+Version: 2023.2
+LUT: 48029
+FF: 61264
+BRAM_18K: 3904
+DSP: 0
+FMax_MHz: 350.0
+Initiation Interval: 1
+Latency Min Cycles: 7
+Latency Max Cycles: 21
+Throughput Gbps: 179.2

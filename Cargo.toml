@@ -3,7 +3,12 @@ members = [
   "crates/spac-cli",
   "crates/spac-core",
   "crates/spac-dsl",
+  "crates/spac-dse",
+  "crates/spac-codegen",
+  "crates/spac-hwreport",
   "crates/spac-layout",
+  "crates/spac-sim",
+  "crates/spac-trace",
 ]
 resolver = "2"
 
@@ -17,3 +22,4 @@ version = "0.1.0"
 [workspace.dependencies]
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.145"
+sha2 = "0.10.9"

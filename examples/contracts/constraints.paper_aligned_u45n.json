@@ -1,0 +1,13 @@
+{
+  "schema_version": "spac.constraints.v0",
+  "name": "paper_aligned_u45n_350mhz",
+  "board_target": "amd-alveo-u45n",
+  "max_lut": 100000,
+  "max_ff": 100000,
+  "max_bram": 300,
+  "max_dsp": 400,
+  "target_fmax_mhz": 350,
+  "max_p99_latency_ns": 1000,
+  "max_packet_drop_rate": 0.000001,
+  "max_initiation_interval": 1
+}
